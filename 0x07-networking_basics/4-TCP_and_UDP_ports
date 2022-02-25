@@ -1,0 +1,3 @@
+#!/usr/env bash
+#show their id and lisinig ports
+netstat -lp
