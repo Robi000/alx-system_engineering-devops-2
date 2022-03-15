@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Configures the location /redirect_me to point to another url
+new_url="\troot \/var\/www\/html;\n\trewrite ^\/redirect_me$ https:\/\/www.youtube.com\/watch?v=QH2-TGUlwu4 permanent;"
+sudo sed -i "s/\troot \/var\/www\/html;/$new_url/" /etc/nginx/sites-available/default
+sudo service nginx reload

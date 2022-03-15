@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Installs and configures nginx, changes the listening port to 80
+# and changes the nginx landing page.
+
+sudo apt install nginx -y
+sudo rm /var/www/html/index.nginx-debian.html 
+sudo echo "Hello World!" | sudo tee -a /var/www/html/index.nginx-debian.html
+sudo service nginx reload
