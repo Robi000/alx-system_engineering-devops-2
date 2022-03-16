@@ -3,6 +3,5 @@
 # and changes the nginx landing page.
 
 sudo apt install nginx -y
-sudo rm /var/www/html/index.nginx-debian.html 
-sudo echo "Hello World!" | sudo tee -a /var/www/html/index.nginx-debian.html
-sudo service nginx reload
+sudo sed -i "s/.*/Hello World\!/" /var/www/html/index.nginx-debian.html
+sudo service nginx start
