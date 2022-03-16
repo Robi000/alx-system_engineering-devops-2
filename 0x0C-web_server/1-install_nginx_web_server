@@ -3,5 +3,5 @@
 # and changes the nginx landing page.
 
 sudo apt install nginx -y
-sudo sed -i "s/.*/Hello World!/" /var/www/html/index.nginx-debian.html
+sudo sed -i "s/.*/Hello World\!/" /var/www/html/index.nginx-debian.html
 sudo service nginx start
