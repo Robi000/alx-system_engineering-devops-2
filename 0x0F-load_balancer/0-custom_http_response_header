@@ -1,4 +1,5 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
+#this will install and configer nginx on new machine
 sudo apt-get update
 sudo apt-get -y install nginx
 sudo service nginx start
