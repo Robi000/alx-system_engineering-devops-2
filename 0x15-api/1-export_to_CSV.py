@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-"""getting data from an api
-"""
+"""this wis well documentd file 
+    """
 
 import requests
 from sys import argv
@@ -11,10 +11,13 @@ todo = requests.get(
     "https://jsonplaceholder.typicode.com/users/{}/todos".format(
         argv[1])).json()
 
-final = ""
-for x in todo:
-    final = final + "\"{}\",\"{}\",\"{}\"\n".format(x["userId"],
-                                                    x["completed"], x["title"])
+countx = 0
+for y in todo:
+    if y["completed"] == True:
+        countx += 1
 
-with open("USER_ID.csv", "w") as f:
-    f.write(final)
+print("Employee {} is done with tasks({}/{}):".format(user["name"], countx,
+                                                      len(todo)))
+for y in todo:
+    if y["completed"] == True:
+        print("\t ", y["title"])
