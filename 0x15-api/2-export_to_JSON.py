@@ -4,10 +4,10 @@
 '''Module 1-export_to_CSV
 Exports data got from API to CSV'''
 
-
+import json
 import requests
 from sys import argv
-import json
+
 
 
 def main():
