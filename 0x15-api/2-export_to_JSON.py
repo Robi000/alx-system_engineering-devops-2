@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
-"""getting data from an api
-"""
+'''Module 1-export_to_CSV
+Exports data got from API to CSV'''
+
 
 import requests
 from sys import argv
