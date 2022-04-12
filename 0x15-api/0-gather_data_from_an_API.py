@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
-"""this wis well documentd file 
-    """
-
 import requests
 from sys import argv
+
+"""this wis well documentd file 
+    """
 
 user = \
     requests.get('https://jsonplaceholder.typicode.com/users/{}'.format(argv[1])).json()  # this is where we find user interface
