@@ -4,8 +4,9 @@
 import requests
 from sys import argv
 
-'''this wis well documentd file 
-    '''
+'''Module 0-gather_data_from_an_API
+using a REST API, for a given employee ID, returns information
+about his/her TODO list progress.'''
 
 user = \
     requests.get('https://jsonplaceholder.typicode.com/users/{}'.format(argv[1])).json()  # this is where we find user interface
