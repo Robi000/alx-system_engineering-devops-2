@@ -14,9 +14,11 @@ def main():
     '''Program starts here'''
 
     user = \
-        requests.get('https://jsonplaceholder.typicode.com/users/{}'.format(argv[1])).json()
+        requests.get('https://jsonplaceholder.typicode.com\
+        /users/{}'.format(argv[1])).json()
     todo = \
-        requests.get('https://jsonplaceholder.typicode.com/users/{}/todos'.format(argv[1])).json()
+        requests.get('https://jsonplaceholder.typicode.com/\
+        users/{}/todos'.format(argv[1])).json()
 
     final = {}
     list_inner = []
