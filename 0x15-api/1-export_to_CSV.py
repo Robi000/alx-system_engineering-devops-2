@@ -1,28 +1,29 @@
 #!/usr/bin/python3
-"""getting data from an api
-    """
-
+'''Module 1-export_to_CSV
+Exports data got from API to CSV'''
+import csv
 import requests
 from sys import argv
 
 
 def main():
-    """this tis the main function"""
+    '''Program starts here'''
+    data = []
+    user_id = argv[1]
+    user_name = requests.get(
+        'https://jsonplaceholder.typicode.com/users/' +
+        user_id).json().get('username')
+    all_tasks = requests.get(
+        'https://jsonplaceholder.typicode.com/todos',
+        params={'userId': user_id}).json()
+    for i in all_tasks:
+        data.append([user_id, user_name,
+                    i['completed'], i['title']])
 
-    user = requests.get("https://jsonplaceholder.typicode.com/users/{}".format(
-        argv[1])).json()
-    todo = requests.get(
-        "https://jsonplaceholder.typicode.com/users/{}/todos".format(
-            argv[1])).json()
-
-    final = ""
-    for x in todo:
-        final = final + "\"{}\",\"{}\",\"{}\"\n".format(
-            x["userId"], x["completed"], x["title"])
-
-    with open(str(user["id"]) + ".csv", "w") as f:
-        f.write(final)
+    with open(user_id + '.csv', 'w') as f:
+        writer = csv.writer(f, quoting=csv.QUOTE_ALL)
+        writer.writerows(data)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
