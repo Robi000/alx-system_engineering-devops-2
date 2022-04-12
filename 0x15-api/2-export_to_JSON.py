@@ -33,6 +33,5 @@ def main():
     with open('USER_ID.json', 'w') as file:
         json.dump(final, file, indent=2)
 
-
 if __name__ == '__main__':
     main()
