@@ -24,7 +24,7 @@ def main():
         final = final + '"{}","{}","{}"\n'.format(x['userId'],
                 x['completed'], x['title'])
 
-    with open('USER_ID.csv', 'w') as f:
+    with open('2.csv', 'w') as f:
         f.write(final)
 
 
