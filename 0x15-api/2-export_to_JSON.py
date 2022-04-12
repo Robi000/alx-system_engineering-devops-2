@@ -9,7 +9,6 @@ import requests
 from sys import argv
 
 
-
 def main():
     '''Program starts here'''
 
