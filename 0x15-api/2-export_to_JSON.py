@@ -11,8 +11,7 @@ import json
 
 
 def main():
-    """this is main funtion to get run 
-    """
+    '''Program starts here'''
 
     user = \
         requests.get('https://jsonplaceholder.typicode.com/users/{}'.format(argv[1])).json()
