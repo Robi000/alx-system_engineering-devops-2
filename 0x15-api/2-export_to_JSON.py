@@ -1,37 +1,31 @@
 #!/usr/bin/python3
-"""getting data from an api
-"""
-
+'''Module 2-export_to_JSON
+Exports data got from API to JSON'''
+import json
 import requests
 from sys import argv
-import json
 
 
 def main():
-    """this is main funtion to get run 
-    """
-    user = requests.get(
-        "https://jsonplaceholder\.typicode.com/users/{}".format(
-            argv[1])).json()
-    todo = requests.get(
-        "https://jsonplaceholder.typicode.com/users/{}/todos".format(
-            argv[1])).json()
+    '''Program starts here'''
+    user_id = argv[1]
+    data = {user_id: []}
+    username = requests.get(
+        'https://jsonplaceholder.typicode.com/users/' +
+        user_id).json().get('username')
+    all_tasks = requests.get(
+        'https://jsonplaceholder.typicode.com/todos',
+        params={'userId': user_id}).json()
 
-    final = {}
-    list_inner = []
+    for i in all_tasks:
+        data[user_id].append(
+            {"task": i['title'],
+             "completed": i['completed'],
+             "username": username})
 
-    for x in todo:
-        inner_todo = {}
-        inner_todo["task"] = x["title"]
-        inner_todo["completed"] = x["completed"]
-        inner_todo["username"] = user["username"]
-        list_inner.append(inner_todo)
-
-    final[str(user["id"])] = list_inner
-
-    with open(str(user["id"]) + ".json", "w") as file:
-        json.dump(final, file, indent=2)
+    with open(user_id + '.json', 'w') as f:
+        json.dump(data, f)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
