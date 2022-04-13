@@ -2,13 +2,10 @@
 """getting data from an api
 """
 
-import requests
-from sys import argv
 import json
+import requests
 
 user = requests.get("https://jsonplaceholder.typicode.com/users").json()
-for x in user:
-    print(x["id"])
 """{ "USER_ID": [ {"username": "USERNAME", "task": "TASK_TITLE", "completed": TASK_COMPLETED_STATUS}, 
     {"username": "USERNAME", "task": "TASK_TITLE", "completed": TASK_COMPLETED_STATUS}, ... ], 
     "USER_ID": [ {"username": "USERNAME", "task": "TASK_TITLE", "completed": TASK_COMPLETED_STATUS}, ...... }}
