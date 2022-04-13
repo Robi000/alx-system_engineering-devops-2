@@ -2,18 +2,19 @@
 """getting data from an api
 """
 
+import json
 import requests
 from sys import argv
-import json
-
 
 def main():
     """this is main funtion to get run 
     """
-    user = requests.get("https://jsonplaceholder.typicode.com/users/{}".format(
+    user = requests.get("https://jsonplaceholder.typicode.\
+        com/users/{}".format(
         argv[1])).json()
     todo = requests.get(
-        "https://jsonplaceholder.typicode.com/users/{}/todos".format(
+        "https://jsonplaceholder.typicode.com/users\
+            /{}/todos".format(
             argv[1])).json()
 
     final = {}
